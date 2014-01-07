@@ -1,0 +1,40 @@
+<div data-role="page" style="width:auto;" id="PortTestTool" data-theme="a" >
+	<!-- header -->
+    <div id="header" data-role="header" data-theme="d" data-add-back-btn="false" data-position="fixed">
+		<h1 class="ui-title" id="PortTitle" role="heading">Port</h1>
+    </div>
+	<div data-role="content" style="margin-top:50px;">
+
+		<table>
+			<tr><td><span>Connectivity Type:</span></td><td><select id='portTypeTT' style="width:120px;" >	</select></td></tr>
+		</table>
+	
+       	<table data-role="table" id="PortTestTool-table" data-mode="columntoggle" class="table-stroke ui-body-d ui-shadow ui-responsive" data-column-btn-theme="a" data-column-btn-text="Columns..." data-column-popup-theme="a" data-mini="true">
+  			<thead>
+    		<tr class="ui-bar-d">
+			    <th>Ports</th>
+      			<th data-priority="1">Speed</th>
+				<th data-priority="1">Connectivity Type</th>
+				<th data-priority="1">Partner Device</th>
+				<th data-priority="1">Status</th>
+				<th data-priority="1">User</th>
+			</tr>
+		  	</thead>
+			<tbody>
+			</tbody>
+					<td><input type='checkbox' id='cport' /><div>Port Icon View</div></td>
+		</table>
+		<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:left" >
+			<input type='checkbox' id='cport' /><div>Port Icon View</div>
+		</div>
+
+		<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="text-align:right" >
+			<a id="PortDoneButton" href="#ConfigManageTestPop" style="width:100px;" data-role="button" data-mini="true">Done</a>
+			<a id="PortCancelButton" href="#ConfigManageTestPop" data-role="button" style="width:100px;" data-mini="true">Cancel</a>
+		</div>
+
+	</div>
+
+
+</div>
+

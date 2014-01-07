@@ -1,0 +1,484 @@
+
+<style>
+#box{
+    width: 356px;
+    font-size: 12px;
+    line-height: 20px;
+    right: -73px;
+    top:11%; /* change this value to place the menu higher or lower */
+    position: absolute;
+    z-index: 100;
+}
+
+#tab{
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 99;
+}
+
+#tab li span{
+    display: block;
+    padding: 0 5px;
+    position: relative;
+}
+
+#sideMenu{
+    width: auto;
+    padding: 10px;
+    float: left;
+ /*   border-left: 1px solid #B4B8BB;*/
+}
+
+.showMenu, .hideMenu{
+    /* we specify the transition length for hiding and showing */
+            transition: margin-right .4s ease-in;
+    -webkit-transition: margin-right .4s ease-in;
+}
+
+.hideMenu{
+    margin-right:-233px;
+}
+
+.showMenu{
+    margin-right:2px;
+}
+
+#arrow, .bt{
+    cursor: pointer;
+}
+#arrow1{
+    cursor: pointer;
+	/*-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);*/
+}
+
+.bt{
+    width: 200px;
+    height: auto;
+    margin: -1px;
+    border:1px solid #858fa6;
+    font: 11px Helvetica,Arial,sans-serif;
+    /*text-shadow:0px 0px 5px rgba(0, 0, 0, 0.75);*/
+	padding-left: 7px;
+	padding-right: 7px;
+    background:#E9E3E3;
+	border-radius: 5px;
+	background: rgb(246,248,249); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjhmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2U1ZWJlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2Q3ZGVlMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNWY3ZjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,248,249,1)), color-stop(50%,rgba(229,235,238,1)), color-stop(51%,rgba(215,222,227,1)), color-stop(100%,rgba(245,247,249,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-8 */
+
+
+}
+
+.bt a{
+    line-height: auto;
+    color: #000;
+    display: block;
+		text-decoration:none;
+}
+
+.bt:hover{
+    transition: background .3s linear;
+    background: #DFDCDC;
+	border:1px solid gray;
+         -o-transition: background .3s linear;
+       -moz-transition: background .3s linear;
+    -webkit-transition: background .3s linear;
+}
+
+#deco{
+    width: auto;
+    float: left;
+            box-shadow:0px 0px 5px #000;
+       -moz-box-shadow:0px 0px 5px #000;
+    -webkit-box-shadow:0px 0px 5px #000;
+	border-radius: 5px;
+	padding: 5px;
+	background: rgb(152,173,204); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzk4YWRjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE3JSIgc3RvcC1jb2xvcj0iIzY1ODliNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iIzUxN2FhYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0OTZmOWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(152,173,204,1) 0%, rgba(101,137,182,1) 17%, rgba(81,122,172,1) 18%, rgba(73,111,156,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(152,173,204,1)), color-stop(17%,rgba(101,137,182,1)), color-stop(18%,rgba(81,122,172,1)), color-stop(100%,rgba(73,111,156,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#98adcc', endColorstr='#496f9c',GradientType=0 ); /* IE6-8 */
+
+
+}
+.tableProp {
+width:200px
+}
+
+
+#box1{
+    width: 356px;
+    font-size: 12px;
+    line-height: 20px;
+    right: -165px;
+    top: 16.2%; /* change this value to place the menu higher or lower */
+    position: absolute;
+    z-index: 100;
+}
+
+#tab1{
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 99;
+}
+
+#tab1 li span{
+    display: block;
+    padding: 0 5px;
+    position: relative;
+}
+
+#sideMenu1{
+    width: auto;
+    padding: 10px;
+    float: left;
+   /* border-left: 1px solid #B4B8BB;*/
+}
+
+.showMenu1, .hideMenu1{
+    /* we specify the transition length for hiding and showing */
+            transition: margin-right .4s ease-in;
+    -webkit-transition: margin-right .4s ease-in;
+}
+
+.hideMenu1{
+    margin-right: -141px;
+}
+
+.showMenu1{
+    margin-right: 93px;
+}
+
+#arrow1, .bt1{
+    cursor: pointer;
+}
+
+.bt1{
+    width: 200px;
+    height: auto;
+    margin: -1px;
+    border:1px solid #858fa6;
+    font: 11px Helvetica,Arial,sans-serif;
+    /*text-shadow:0px 0px 5px rgba(0, 0, 0, 0.75);*/
+	padding-left: 7px;
+	padding-right: 7px;
+    background:#E9E3E3;
+	border-radius: 5px;
+	background: rgb(246,248,249); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjhmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2U1ZWJlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2Q3ZGVlMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNWY3ZjkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,248,249,1)), color-stop(50%,rgba(229,235,238,1)), color-stop(51%,rgba(215,222,227,1)), color-stop(100%,rgba(245,247,249,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-8 */
+
+
+}
+
+.bt1 a{
+    line-height: auto;
+    color: #000;
+    display: block;
+		text-decoration:none;
+}
+
+.bt1:hover{
+    transition: background .3s linear;
+    background: #DFDCDC;
+	border:1px solid gray;
+         -o-transition: background .3s linear;
+       -moz-transition: background .3s linear;
+    -webkit-transition: background .3s linear;
+}
+
+#deco1{
+    width: auto;
+    float: left;
+            box-shadow:0px 0px 5px #000;
+       -moz-box-shadow:0px 0px 5px #000;
+    -webkit-box-shadow:0px 0px 5px #000;
+	border-radius: 5px;
+	padding: 5px;
+	background: rgb(152,173,204); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzk4YWRjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE3JSIgc3RvcC1jb2xvcj0iIzY1ODliNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iIzUxN2FhYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0OTZmOWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(152,173,204,1) 0%, rgba(101,137,182,1) 17%, rgba(81,122,172,1) 18%, rgba(73,111,156,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(152,173,204,1)), color-stop(17%,rgba(101,137,182,1)), color-stop(18%,rgba(81,122,172,1)), color-stop(100%,rgba(73,111,156,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(152,173,204,1) 0%,rgba(101,137,182,1) 17%,rgba(81,122,172,1) 18%,rgba(73,111,156,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#98adcc', endColorstr='#496f9c',GradientType=0 ); /* IE6-8 */
+
+
+}
+.tableProp1 {
+width:200px
+}
+</style>
+
+<script>
+
+function toggle1(id) {
+    var el = document.getElementById(id);
+    var img = document.getElementById("arrow1");
+    var box = el.getAttribute("class");
+    if(box == "hideMenu1"){
+        el.setAttribute("class", "showMenu1");
+        //delay(img, "img/arrowright2.png", 400);
+        delay(img, "img/configname.png", 400);
+    }
+    else{
+        el.setAttribute("class", "hideMenu1");
+        //delay(img, "img/arrowleft2.png", 400);
+        delay(img, "img/configname.png", 400);
+    }
+}
+
+function delay(elem, src, delayTime){
+    window.setTimeout(function() {elem.setAttribute("src", src);}, delayTime);
+}
+
+function toggle(id) {
+    var el = document.getElementById(id);
+    var img = document.getElementById("arrow");
+    var box = el.getAttribute("class");
+    if(box == "hideMenu"){
+        el.setAttribute("class", "showMenu");
+    //    delay(img, "img/arrowright1.png", 400);
+        delay(img, "img/resdom.png", 400);
+    }
+    else{
+        el.setAttribute("class", "hideMenu");
+    //    delay(img, "img/arrowleft1.png", 400);
+        delay(img, "img/resdom.png", 400);
+    }
+}
+
+function delay(elem, src, delayTime){
+    window.setTimeout(function() {elem.setAttribute("src", src);}, delayTime);
+}
+
+/*
+function toggle(id) {
+ //   var el = document.getElementById(id);
+    var img = document.getElementById("arrow");
+    var box = $("#"+id).attr("class");
+    if($("#"+id).hasClass("hideMenu")){
+		console.log(">>>>>>>>");
+     //   el.setAttribute("class", "showMenu");
+			$("#"+id).show();
+        delay(img, "img/arrowright1.png", 400);
+    }
+    else{
+		$("#"+id).hide();
+        //el.setAttribute("class", "hideMenu");
+        delay(img, "img/arrowleft1.png", 400);
+    }
+}
+
+function delay(elem, src, delayTime){
+    window.setTimeout(function() {elem.setAttribute("src", src);}, delayTime);
+}
+*/
+
+
+</script>
+
+<div id="box" class="">
+    
+<a data-role="button"  data-icon="info" data-iconpos="notext" data-inline="true" href="#" ></a>
+	<ul id="tab">
+        <li>
+            <!--<img id="arrow" onclick="toggle('box');" src="img/arrowright1.png">-->
+
+            <img id="arrow" onclick="toggle('box');" src="img/resdom.png">
+        </li>
+    </ul>
+    <div id="sideMenu">
+        <div id="deco">
+            <div class="bt" ><a href="#" ><table class="tableProp"><tr><td style="white-space: nowrap; font-weight:bold;">Resource Domain:</td></tr><tr><td style="text-align:center;"><span id="domainText"></span></td></tr></table></a></div>
+            
+			<!--<div class="bt"><a href="#" ><table><tr><td style="white-space: nowrap; font-weight:bold;">Configuration Name:</td></tr><tr><td style="white-space: pre-wrap;"><span id="configText"></span></td></tr></table></a></div>-->
+          
+          
+        </div>
+    </div>
+	
+</div>
+
+<div id="box1" class="hideMenu1">
+    <ul id="tab1">
+        <li>
+            <!--<img id="arrow1" onclick="toggle1('box1');" src="img/arrowleft2.png">-->
+
+            <img id="arrow1" onclick="toggle1('box1');" src="img/configname.png">
+        </li>
+    </ul>
+    <div id="sideMenu1">
+        <div id="deco1">
+            <!--<div class="bt1" ><a href="#" ><table class="tableProp"><tr><td style="white-space: nowrap; font-weight:bold;">Resource Domain:</td></tr><tr><td style="text-align:center;">mnbvqwertyuiioplkjhgfdsazxcvbn<span id="domainText"></span></td></tr></table></a></div>-->
+            
+			<div class="bt1"><a href="#" ><table><tr><td style="white-space: nowrap; font-weight:bold;">Configuration Name:</td></tr><tr><td style="white-space: pre-wrap; text-align:center;"><span id="configText"></span></td></tr></table></a></div>
+          
+          
+        </div>
+    </div>
+	
+</div>
+<!--End Side Menu--->
+<div id="header" data-role="header" data-theme="d" data-position="fixed">
+	<a id="grid-button"  data-rel="popup" data-role="button" data-icon="grid" data-iconpos="notext" data-inline="true" href="#gridPanel" style=""></a>
+	<div id="actionButtons">
+		<a class="tooltip"><img class="actBtn" src="img/action_buttons/applyall.png" id="applyall"><span>Apply All</span></a>
+		<a class="tooltip"><img class="actBtn" src="img/action_buttons/loadactive.png" id="loadactive"><span>Load Active</span></a>
+		<a class="tooltip"><img class="actBtn" src="img/action_buttons/clear.png" id="clearcanvas"><span>Clear </span></a>
+		<a class="tooltip"><img class="actBtn" src="img/action_buttons/commit.png" id="committopology"><span>Commit </span></a>
+        <a class="tooltip"><img class="actBtn" src="img/action_buttons/cancel.png" id="cancelreservation"><span>Cancel </span></a>
+	</div>
+
+	<a id="user-button"  data-rel="popup" data-role="button" data-icon="user" data-iconpos="notext" data-inline="true" href="#userPanel" style="" class="ui-btn-right"></a>
+	<a id="bars-button"  data-rel="popup" data-role="button" data-icon="bars" data-iconpos="notext" data-inline="true" href="#barsPanel" style="margin-top: 1.2%;float: right;margin-right: 60px;"></a>
+</div>
+<!--
+	<a data-role="button"  data-icon="info" data-iconpos="notext" data-inline="true" href="#" id="triggerDomain" class="trigger2 left" ></a>
+	<div id="panel3" class="panel3 left" style="position: absolute;padding: 6px 3px 6px 5px; display: block;">
+		<p id="confi">Domain Name:<span id="domainText"></span</p>
+	</div>
+
+
+	<a data-role="button"  data-icon="gear" data-iconpos="notext" data-inline="true" href="#" id="trigger2" class="trigger right" ></a>
+	<div id="panel2" class="panel3 right" style="position: absolute;padding: 6px 3px 6px 5px; display: none;">
+		<p id="confi">Config Name:<span id="configText"></span</p>
+	</div>-->
+<div data-role="content" id="configContent" style="margin-bottom: -114px;margin-top:0px;">
+  	<canvas id="configCanvas" style="border: 4px solid gray;border-radius: 10px;"></canvas>
+</div>
+<div data-role="footer" data-theme="c" class="ui-bar" data-position="fixed" style="display:none;" id="configFooter">
+ 	<div id="dock">
+       	<ul>
+          	<li><a href="#"><span>Config Editor</span><img class="configCar" src="img/configeditor.png" alt="[Config Editor]" /></a></li>
+	        <li><a href="#"><span>Administration</span><img class="adminCar" src="img/Admin.png" alt="[Administration]" /></a></li>
+            <li><a href="#"><span>Resource Management</span><img class="rmCar" src="img/RM.png" alt="[Resource Management]" /></a></li>
+            <li><a href="#"><span>Power Management</span><img class="pmCar" src="img/PM.png" alt="[Power Management]" /></a></li>
+            <li><a href="#"><span>Statistics and Reports</span><img class="statCar" src="img/Statistics.png" alt="[Statistics]" /></a></li>
+       </ul>
+   </div>
+</div>
+
+    <div data-role="popup" style="right: 10%;top:48px;" id="barsPanel" data-theme="a" data-display="overlay" data-position="right" class="panelCont" data-mini="true">
+		<div id="exampleArrow-t" class="ui-popup-arrow-container ui-popup-arrow-t" style="position: absolute;right: 4%;">
+        	<div style="" class="ui-popup-arrow ui-body-inherit ui-overlay-shadow"></div>
+        </div>
+	</div>
+    <div data-role="popup" style=" left: -13px; top: 48px;" id="gridPanel" data-theme="a" data-display="overlay" data-position="left" class="panelCont" data-mini="true">
+    	<div id="exampleArrow-t" class="ui-popup-arrow-container ui-popup-arrow-t" style="margin-left: 12px;">
+           	<div style="" class="ui-popup-arrow ui-body-inherit ui-overlay-shadow"></div>
+        </div>
+    </div>
+
+	<div data-role="popup" style="right: 8%;top: 48px;" id="userPanel" data-theme="g" data-display="overlay" data-position="right" class="panelCont" data-mini="true">
+        <div id="exampleArrow-t" class="ui-popup-arrow-container ui-popup-arrow-t" style="position: absolute;right: 10px;">
+            <div style="" class="ui-popup-arrow ui-body-inherit ui-overlay-shadow"></div>
+        </div>
+		<div style="padding: 5px;">
+			<a style="padding: 10px;" href="#" id="logOut">Signout</a>
+		</div>
+    </div>
+
+	<div data-role="popup" style="width: auto;right: -9px;top: 0px;" id="deviceMenuPanel" data-theme="a" data-display="overlay" data-position="right" class="panelCont" data-mini="true">
+			<table id="deviceMenu" data-theme="c" style="min-width: 300px;">
+				<tr style="height: 60px;">
+ 		        	<td colspan="3">
+              			<div style="" data-role="header" id="PaletteTitle3" data-theme="d"><span class="devMenuTitle">Device Menu</span></div>
+			        </td>
+			    </tr>
+				<tr id="" data-mini="true" data-inset="true">
+    	            <td data-mini="true"><img width="45px" src="img/devpopup/device.png" data-transition="flow" class="devListMain" id="deviceList" /><p>Device</p></td>
+	                <td data-mini="true"><img width="45px" src="img/devpopup/tools.png" data-transition="flow" class="devListMain" id="deviceToolsList" /><p>Tools</p></td>
+                	<td data-mini="true"><img width="45px" src="img/devpopup/logs.png" data-transition="flow" class="devListMain" id="deviceLogsList" /><p>Logs</p></td>
+				</tr>
+			</table>
+			<table id="deviceListSub" data-theme="c" style="min-width: 300px;display: none;">
+				<tr style="height: 60px;">
+	         		<td colspan="4">
+    	         		<a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -25px; position: absolute; z-index: 999; " class="bckDeviceMenu"></a>
+        			    <div style="" data-role="header" id="PaletteTitle2" data-theme="d" data-add-back-btn="false"></div>
+			        </td>
+			    </tr>
+				<tr id="" data-mini="true" data-inset="true" style="margin-top:10px;">
+					<td data-mini="true"><img width="45px" src="img/devpopup/map.png" data-transition="flow" class="devListMain" id="deviceMapDevMenu" /><p>Map</p></td>
+    	            <td data-mini="true"><img width="45px" src="img/devpopup/delete.png" data-transition="flow" class="devListMain" id="delDevDevMenu" /><p>Delete</p></td>
+        	        <td data-mini="true"><img width="45px" src="img/devpopup/configuration.png" data-transition="flow" class="devListMain"  id="devConfDevMenu"><p>Configuration</p></td>
+	       		    <td data-mini="true"><img width="45px" src="img/devpopup/filter.png" data-transition="flow" class="devListMain"><p>Filter</p></td>
+				</tr>
+			</table>
+			<table id="deviceToolsListSub" data-theme="c" style="min-width: 300px;display: none;">
+				<tr style="height: 60px;">
+	         		<td colspan="4">
+    	         		<a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -25px; position: absolute; z-index: 999; " class="bckDeviceMenu"></a>
+        			    <div style="" data-role="header" id="PaletteTitle2" data-theme="d" data-add-back-btn="false"></div>
+			        </td>
+			    </tr>
+				<tr data-role="listview" data-mini="true" data-inset="true" id="deviceToolsSubList">
+					<td data-mini="true"><img width="45px" src="img/devpopup/linksanity.png" data-transition="flow" /><p>Link Sanity</p></td>
+					<td data-mini="true"><img width="45px" src="img/devpopup/softwareimage.png" data-transition="flow" /><p>Software Image</p></td>
+					<td data-mini="true"><img width="45px" src="img/devpopup/configuration.png" data-transition="flow" /><p>Configuration</p></td>
+					<td data-mini="true"><img width="45px" src="img/devpopup/autodiscover.png" data-transition="flow" id="autoDDevMenu" /><p>Auto Discover</p></td>
+				</tr>
+			</table>
+    </div>	
+
+	<div data-role="popup" style="width: auto;right: -9px;top: 0px;" id="linkMenuPanel" data-theme="a" data-display="overlay" data-position="right" class="panelCont" data-mini="true">
+			<table id="linkMenu" data-theme="c" style="min-width: 300px;">
+				<tr style="height: 60px;">
+	       			<td colspan="3">
+       				    <div style="" data-role="header" id="PaletteTitle3" data-theme="d" data-add-back-btn="false"><span class="devMenuTitle">Link Menu</span></div>
+			        </td>
+			    </tr>
+				<tr data-role="listview" data-mini="true" data-inset="true">
+                	<td data-mini="true"><img width="45px" src="img/devpopup/linksanity.png" data-transition="flow" class="devListMain" id="linkList" /><p>Link</p></td>
+                	<td data-mini="true"><img width="45px" src="img/devpopup/tools.png" data-transition="flow" class="devListMain" id="linkToolsList" /><p>Tools</p></td>
+	               	<td data-mini="true"><img width="45px" src="img/devpopup/logs.png" data-transition="flow" class="devListMain" id="linkLogsList" /><p>Logs</p></td>
+				</tr>
+			</table>
+			<table id="subLink" data-theme="c" style="min-width: 300px;display: none;">
+				<tr style="height: 60px;">
+	         		<td colspan="2">
+    	         		<a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="d" data-mini="true" style="margin-top: -25px; position: absolute; z-index: 999; " class="bckLinkMenu"></a>
+        			    <div style="" data-role="header" id="PaletteTitle2" data-theme="d" data-add-back-btn="false"></div>
+			        </td>
+			    </tr>
+				<tr data-role="listview" data-mini="true" data-inset="true" id="linkSubList">
+					<td data-mini="true" id="linkConnect"><img width="45px" src="img/devpopup/linkconnect.png" data-transition="flow" id="alinkConnect"/><p>Connect</p></td>
+					<td data-mini="true" id="linkDisconnect"><img width="45px" src="img/devpopup/linkdisconnect.png" data-transition="flow" id="alinkDisconnect"/><p>Disconnect</p></td>
+					<td data-mini="true" id="linkFlap"><img width="45px" src="img/devpopup/linkflap.png" data-transition="flow" id="alinkFlap"/><p>Flap</p></td>
+					<td data-mini="true"><img width="45px" src="img/devpopup/map-link.png" data-transition="flow" /><p>Map</p></td>
+    	           	<td data-mini="true"><img width="45px" src="img/devpopup/delete.png" data-transition="flow" id="delLinkDevMenu" /><p>Delete</p></td>
+				</tr>
+			</table>
+    </div>	
+

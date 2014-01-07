@@ -1,0 +1,43 @@
+<div data-role="dialog" id="EditDevice" data-theme="a">
+      <div data-role="header" data-theme="d" data-add-back-btn="true" data-position="fixed">
+            <h2>Extend Reservation</h2>
+        </div>
+        <div data-role="content" data-theme="a">
+			<center>
+			<table>
+				<tr>
+					<td>Apply To:</td>
+					<td>
+						<select id='toAppExt'>
+							<option value='all'>All Devices</option>
+							<option value='Specific'>Specific Device</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Iteration:</td>
+					<td>
+						<select id='iterxt'>
+							<option value='all'>All Iteration</option>
+							<option value='Specific'>Specific Iteration</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			</center>
+			<table>
+				<fieldset data-role="controlgroup" data-mini="true">
+    	<input type="radio" name="radio-mini" id="radio-mini-1" value="choice-1" checked="checked" />
+    	<label for="radio-mini-1">Apply Same Duration</label>
+
+	<input type="radio" checked='true' name="radio-mini" id="radio-mini-2" value="choice-2"  />
+    	<label for="radio-mini-2">Extend</label>
+    	
+				</fieldset>
+			</table>
+				<td>
+					<a id="okEdit" href="rmEdit" data-role="button" style="width:100px;" data-mini="true">Ok</a>
+				</td>
+
+		</div>
+</div>
